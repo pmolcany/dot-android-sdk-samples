@@ -6,6 +6,7 @@ import com.innovatrics.dot.face.DotFaceLibrary
 import com.innovatrics.dot.face.DotFaceLibraryConfiguration
 import com.innovatrics.dot.face.detection.fast.DotFaceDetectionFastModule
 import com.innovatrics.dot.face.expressionneutral.DotFaceExpressionNeutralModule
+import com.innovatrics.dot.face.eyegazeliveness.DotFaceEyeGazeLivenessModule
 import com.innovatrics.dot.face.modules.DotFaceModule
 import com.innovatrics.dot.face.passiveliveness.DotFacePassiveLivenessModule
 import com.innovatrics.dot.face.verification.DotFaceVerificationModule
@@ -36,6 +37,7 @@ class InitializeDotFaceUseCase(
             DotFaceDetectionFastModule.of(),
             DotFaceVerificationModule.of(),
             DotFaceExpressionNeutralModule.of(),
+            DotFaceEyeGazeLivenessModule.of(),
             DotFacePassiveLivenessModule.of(),
         )
     }

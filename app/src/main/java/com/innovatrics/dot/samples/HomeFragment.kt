@@ -11,6 +11,9 @@ import com.innovatrics.dot.document.autocapture.DocumentAutoCaptureFragment
 import com.innovatrics.dot.face.autocapture.FaceAutoCaptureConfiguration
 import com.innovatrics.dot.face.autocapture.FaceAutoCaptureFragment
 import com.innovatrics.dot.face.autocapture.quality.PassiveLivenessQualityProvider
+import com.innovatrics.dot.face.liveness.eyegaze.EyeGazeLivenessConfiguration
+import com.innovatrics.dot.face.liveness.eyegaze.EyeGazeLivenessFragment
+import com.innovatrics.dot.face.liveness.eyegaze.RandomSegmentsGenerator
 import com.innovatrics.dot.face.liveness.smile.SmileLivenessConfiguration
 import com.innovatrics.dot.face.liveness.smile.SmileLivenessFragment
 
@@ -19,6 +22,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var documentAutoCaptureStartButton: Button
     private lateinit var nfcReadingStartButton: Button
     private lateinit var faceAutoCaptureStartButton: Button
+    private lateinit var eyeGazeLivenessStartButton: Button
     private lateinit var smileLivenessStartButton: Button
     private lateinit var faceMatcherStartButton: Button
 
@@ -28,6 +32,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         setupDocumentAutoCaptureStartButton()
         setupNfcReadingStartButton()
         setupFaceAutoCaptureStartButton()
+        setupEyeGazeLivenessStartButton()
         setupSmileLivenessStartButton()
         setupFaceMatcherStartButton()
     }
@@ -36,6 +41,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         documentAutoCaptureStartButton = view.findViewById(R.id.document_auto_capture_start)
         nfcReadingStartButton = view.findViewById(R.id.nfc_reading_start)
         faceAutoCaptureStartButton = view.findViewById(R.id.face_auto_capture_start)
+        eyeGazeLivenessStartButton = view.findViewById(R.id.eye_gaze_liveness_start)
         smileLivenessStartButton = view.findViewById(R.id.smile_liveness_start)
         faceMatcherStartButton = view.findViewById(R.id.face_matcher_start)
     }
@@ -66,6 +72,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     .build()
             )
             findNavController().navigate(R.id.action_HomeFragment_to_BasicFaceAutoCaptureFragment, bundle)
+        }
+    }
+
+    private fun setupEyeGazeLivenessStartButton() {
+        eyeGazeLivenessStartButton.setOnClickListener {
+            val segments = RandomSegmentsGenerator().generate(6, 1000)
+            val bundle = bundleOf(EyeGazeLivenessFragment.CONFIGURATION to EyeGazeLivenessConfiguration.Builder(segments).build())
+            findNavController().navigate(R.id.action_HomeFragment_to_BasicEyeGazeLivenessFragment, bundle)
         }
     }
 

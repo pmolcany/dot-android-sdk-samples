@@ -47,6 +47,7 @@ dependencies {
     implementation "com.innovatrics.dot:dot-document:$dotVersion"
     implementation "com.innovatrics.dot:dot-face-detection-fast:$dotVersion"
     implementation "com.innovatrics.dot:dot-face-expression-neutral:$dotVersion"
+    implementation "com.innovatrics.dot:dot-face-eye-gaze-liveness:$dotVersion"
     implementation "com.innovatrics.dot:dot-face-passive-liveness:$dotVersion"
     implementation "com.innovatrics.dot:dot-face-verification:$dotVersion"
     implementation "com.innovatrics.dot:dot-nfc:$dotVersion"

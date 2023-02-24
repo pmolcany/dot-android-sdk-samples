@@ -23,6 +23,10 @@
             app:destination="@id/BasicFaceAutoCaptureFragment" />
 
         <action
+            android:id="@+id/action_HomeFragment_to_BasicEyeGazeLivenessFragment"
+            app:destination="@id/BasicEyeGazeLivenessFragment" />
+
+        <action
             android:id="@+id/action_HomeFragment_to_BasicSmileLivenessFragment"
             app:destination="@id/BasicSmileLivenessFragment" />
 
@@ -130,6 +134,29 @@
             app:popUpTo="@id/HomeFragment" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/BasicEyeGazeLivenessFragment"
+        android:name="com.innovatrics.dot.samples.eyegazeliveness.BasicEyeGzeLivenessFragment"
+        android:label="@string/navigation_destination_eye_gaze_liveness"
+        tools:layout="@layout/fragment_eye_gaze_liveness">
+
+        <argument
+            android:name="configuration"
+            app:argType="com.innovatrics.dot.face.liveness.eyegaze.EyeGazeLivenessConfiguration" />
+
+        <action
+            android:id="@+id/action_BasicEyeGazeLivenessFragment_to_EyeGazeLivenessResultFragment"
+            app:destination="@id/EyeGazeLivenessResultFragment"
+            app:popUpTo="@id/HomeFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/EyeGazeLivenessResultFragment"
+        android:name="com.innovatrics.dot.samples.eyegazeliveness.EyeGazeLivenessResultFragment"
+        android:label="@string/navigation_destination_eye_gaze_liveness"
+        tools:layout="@layout/fragment_eye_gaze_liveness_result" />
 
     <fragment
         android:id="@+id/SmileLivenessResultFragment"
